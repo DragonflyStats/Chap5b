@@ -1,0 +1,26 @@
+BXc2008 describes the sampling method when discussing of a motivating example
+
+Diabetes patiens attending an outpatient clinic in Denmark have their HbA_{1c} levels routinely measured at every visit.
+
+Venous and Capillary blood samples were obtained from all patients appearing at the clinic over two days.
+
+Samples were measured on four consecutive days on each machines, hence there are five analysis days.
+
+BXC notes that every machine was calibrated every day to  the manufacturers guidelines.
+
+measurements are classified by method, individual and replicate. In this case the replicates are clearly not exchangeable, neither within patients
+nor simulataneously for all patients.
+
+
+Hamlett
+Hamlett re-analyses the data of lam et al to generalize their model to cover other settings not covered by the Lam method.
+
+
+Lam 99
+In many cases, repeated observation are collected from each subject in sequence  and/or longitudinally.
+
+
+\{ y_i = \alpha + \mu_i + \epsilon \}
+
+Subcutaneous Fat data
+Subcutaneous fat from patients
