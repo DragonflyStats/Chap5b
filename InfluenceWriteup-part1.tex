@@ -69,6 +69,26 @@
 %1.14 Matrix Notation of Case Deletion
 %1.15 CPJ's Three Propositions
 %1.16 Other measures of Influence
+\newpage
+%--------------------------------------------------------------------Diagnostics%
+\section{Diagnostics}
+
+%http://www.artifex.org/~meiercl/R_statistics_guide.pdf
+\subsection{Identifying outliers with a LME model object}
+
+The process is slightly different than with standard LME model objects, since the \textbf{\emph{influence}}
+function does not work on lme model objects. Given \textbf{\emph{mod.lme}}, we can use the plot function to
+identify outliers.
+%----------------------%
+\subsection{Diagnostics for Random Effects}
+Empirical best linear unbiased predictors EBLUPS provide the a useful way of diagnosing random effects.
+
+EBLUPs are also known as ``shrinkage estimators" because they tend to be smaller than the estimated effects would be if they were computed by treating a random factor as if it was fixed (West etal )
+
+
+
+
+\newpage
 %---------------------------------------------------------------------------%
 \section{Introduction}%1.1
 In classical linear models model diagnostics have been become a required part of any statistical analysis, and the methods are commonly available in statistical packages and standard textbooks on applied regression. However it has been noted by several papers that model diagnostics do not often accompany LME model analyses.
