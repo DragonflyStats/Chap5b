@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{graphics}
 \usepackage{epsfig}
+\usepackage{amssymb}
 \usepackage{subfigure}
 \usepackage{subfiles}
 \usepackage{fancyhdr}
@@ -19,7 +20,7 @@
 
 \addcontentsline{toc}{section}{Bibliography}
 \bigskip
-\begin{framed}
+\begin{framed} 
 \begin{itemize}
 	\item \texttt{R} command and \texttt{R} object - Typewriter Font
 	\item \texttt{R} Package name - Italics
@@ -27,6 +28,10 @@
 \end{itemize}
 \end{framed}
 \newpage
+%\subfile{Influence-Intro.tex}
+\subfile{Influence-OLS.tex}
+\subfile{CooksDistance-OLS.tex}
+\subfile{CooksDistance-LME.tex}
 
 \subfile{Influence-OLS.tex}
 \subfile{Influence-LME.tex}
@@ -149,4 +154,5 @@ frame or combination of thereof".
 \newpage
 \bibliography{DB-txfrbib}
 \end{document}
+
 

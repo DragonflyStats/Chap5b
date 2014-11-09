@@ -166,27 +166,6 @@ If the global measure suggests that the points in $U$ are influential, the natur
 %---------------------------------------------------------------------------%
 \newpage
 
-\newpage
-\section{Case Deletion Diagnostics} %1.6
-
-\citet{CPJ} develops \index{case deletion diagnostics} case deletion diagnostics, in particular the equivalent of \index{Cook's distance} Cook's distance, for diagnosing influential observations when estimating the fixed effect parameters and variance components.
-
-\subsection{Deletion Diagnostics}
-
-Since the pioneering work of Cook in 1977, deletion measures have been applied to many statistical models for identifying influential observations.
-
-Deletion diagnostics provide a means of assessing the influence of an observation (or groups of observations) on inference on the estimated parameters of LME models.
-
-Data from single individuals, or a small group of subjects may influence non-linear mixed effects model selection. Diagnostics routinely applied in model building may identify such individuals, but these methods are not specifically designed for that purpose and are, therefore, not optimal. We describe two likelihood-based diagnostics for identifying individuals that can influence the choice between two competing models.
-
-Case-deletion diagnostics provide a useful tool for identifying influential observations and outliers.
-
-The computation of case deletion diagnostics in the classical model is made simple by the fact that estimates of $\beta$ and $\sigma^2$, which exclude the ith observation, can be computed without re-fitting the model. Such update formulas are available in the mixed model only if you assume that the covariance parameters are not affected by the removal of the observation in question. This is rarely a reasonable assumption.
-
-\section{Effects on fitted and predicted values}
-\begin{equation}
-\hat{e_{i}}_{(U)} = y_{i} - x\hat{\beta}_{(U)}
-\end{equation}
 
 \subsection{Case Deletion Diagnostics for Mixed Models}
 
@@ -236,84 +215,6 @@ OLS regression, the residual sums of squares serves that purpose. In linear mixe
 'observation-diagnostics'. For multiple observations, Preisser describes the diagnostics as 'cluster-deletion' diagnostics.
 
 
-
-%---------------------------------------------------------------------------%
-\newpage
-\section{Cook's Distance} %1.9
-
-\subsection{Cook's Distance}%1.19.1 
-Cooks Distance ($D_{i}$) is an overall measure of the combined impact of the $i$th case of all estimated regression coefficients. It uses the same structure for measuring the combined impact of the differences in the estimated regression coefficients when the $k$th case is deleted. $D_{(k)}$ can be calculated without fitting
-a new regression coefficient each time an observation is deleted.
-
-
-\citet{cook77} greatly expanded the study of residuals and influence measures. Cook's key observation was the effects of deleting each observation in turn could be computed without undue additional computational expense. Consequently deletion diagnostics have become an integral part of assessing linear models.
-
-\index{Cook's distance}Cook's Distance is a well known diagnostic technique used in classical linear models, extended to LME models.  For LME models, two formulations exist; a \index{Cook's distance}Cook's distance that examines the change in fixed fixed parameter estimates, and another that examines the change in random effects parameter estimates. The outcome of either Cook's distance is a scaled change in either $\beta$ or $\theta$.
-
-\subsection{Cooks's Distance}%1.9.2
-\index{Cook's distance} Cook's $D$ statistics (i.e. colloquially Cook's Distance) is a measure of the influence of observations in subset $U$ on a vector of parameter estimates \citep{cook77}.
-
-\[ \delta_{(U)} = \hat{\beta} - \hat{\beta}_{(U)}\]
-
-If V is known, Cook's D can be calibrated according to a chi-square distribution with degrees of freedom equal to the rank of $\boldsymbol{X}$ \citep{cpj92}.
-
-
-\subsection{Cook's Distance}%1.9.3
-\index{Cook's Distance}
-In classical linear regression, a commonly used meausre of influence is Cook's distance. It is used as a measure of influence on the regression coefficients.
-
-For linear mixed effects models, Cook's distance can be extended to model influence diagnostics by definining.
-
-\[ C_{\beta i} = {(\hat{\beta} - \hat{\beta}_{[i]})^{T}(\boldsymbol{X}^{\prime}\boldsymbol{V}^{-1}\boldsymbol{X}) (\hat{\beta} - \hat{\beta}_{[i]}) \over p}\]
-
-It is also desirable to measure the influence of the case deletions on the covariance matrix of $\hat{\beta}$.
-
-%---------------------------------------------------------------------------%
-\newpage
-\section{Cook's Distance for LMEs} %1.10
-Diagnostic methods for fixed effects are generally analogues of methods used in classical linear models.
-Diagnostic methods for variance components are based on `one-step' methods. \citet{cook86} gives a completely general method for assessing the influence of local departures from assumptions in statistical models.
-
-For fixed effects parameter estimates in LME models, the \index{Cook's distance} Cook's distance can be extended to measure influence on these fixed effects.
-
-\[
-\mbox{CD}_{i}(\beta) = \frac{(c_{ii} - r_{ii}) \times t^2_{i}}{r_{ii} \times p}
-\]
-
-For random effect estimates, the \index{Cook's distance} Cook's distance is
-
-\[
-\mbox{CD}_{i}(b) = g{\prime}_{(i)} (I_{r} + \mbox{var}(\hat{b})D)^{-2}\mbox{var}(\hat{b})g_{(i)}.
-\]
-Large values for Cook's distance indicate observations for special attention.
-
-\subsection{Change in the precision of estimates}
-
-The effect on the precision of estimates is separate from the effect on the point estimates. Data points that
-have a small \index{Cook's distance}Cook's distance, for example, can still greatly affect hypothesis tests and confidence intervals, if their  influence on the precision of the estimates is large.
-
-
-%---------------------------------------------------------------------------%
-\newpage
-\section{Likelihood Distance} %1.11
-The likelihood distance gives the amount by which the log-likelihood of the full data changes if one were
-to evaluate it at the reduced-data estimates. The important point is that $l(\psi_{(U)})$ is not the log-likelihood
-obtained by fitting the model to the reduced data set.
-
-It is obtained by evaluating the likelihood function based on the full data set (containing all n observations) at the reduced-data estimates.
-
-The likelihood distance is a global, summary measure, expressing the joint influence of the observations in
-the set $U$ on all parameters in $\psi$  that were subject to updating.
-%------------%
-
-\subsection{Likelihood Distance}
-
-The \index{likelihood distance} likelihood distance is a global, summary measure, expressing the joint influence of the observations in the set $U$ on all parameters in $\phi$  that were subject to updating.
-
-
-
-
-%---------------------------------------------------------------------------%
 \newpage
 \section{Iterative and non-iterative influence analysis} %1.13
 \citet{schabenberger} highlights some of the issue regarding implementing mixed model diagnostics.
@@ -408,44 +309,6 @@ Without loss of generality, matrices can be partitioned as if the $i-$th omitted
 %-----------------------------%
 \subsection{Proposition 3}
 This proposition is similar to the formula for the one-step Newtown Raphson estimate of the logistic regression coefficients given by Pregibon (1981) and discussed in Cook Weisberg.
-
-%-----------------------------------------------------------------------------------------------------------------------------------%
-
-
-\newpage
-\section{Measures of Influence} %1.16
-
-The impact of an observation on a regression fitting can be determined by the difference between the estimated regression coefficient of a model with all observations and the estimated coefficient when the particular observation is deleted. The measure DFBETA is the studentized value of this difference.
-
-Influence arises at two stages of the LME model. Firstly when $V$ is estimated by $\hat{V}$, and subsequent
-estimations of the fixed and random regression coefficients $\beta$ and $u$, given $\hat{V}$.
-
-
-\subsection{DFFITS} %1.16.1
-DFFITS is a statistical measured designed to a show how influential an observation is in a statistical model. It is closely related to the studentized residual.
-\begin{displaymath} DFFITS = {\widehat{y_i} -
-\widehat{y_{i(k)}} \over s_{(k)} \sqrt{h_{ii}}} \end{displaymath}
-
-
-\subsection{PRESS} %1.16.2
-The prediction residual sum of squares (PRESS) is an value associated with this calculation. When fitting linear models, PRESS can be used as a criterion for model selection, with smaller values indicating better model fits.
-\begin{equation}
-PRESS = \sum(y-y^{(k)})^2
-\end{equation}
-
-
-\begin{itemize}
-\item $e_{-Q} = y_{Q} - x_{Q}\hat{\beta}^{-Q}$
-\item $PRESS_{(U)} = y_{i} - x\hat{\beta}_{(U)}$
-\end{itemize}
-
-\subsection{DFBETA} %1.16.3
-\begin{eqnarray}
-DFBETA_{a} &=& \hat{\beta} - \hat{\beta}_{(a)} \\
-&=& B(Y-Y_{\bar{a}}
-\end{eqnarray}
-%-------------------------------------------------------------------------------------------------------------------------------------%
-%-------------------------------------------------------------------------------------------------------------------------------------%
 %-------------------------------------------------------------------------------------------------Chapter 2	------------------------%
 %-------------------------------------------------------------------------------------------------------------------------------------%
 %-------------------------------------------------------------------------------------------------------------------------------------%
@@ -644,7 +507,7 @@ X = \left(%
 %-------------------------------------------------------------------------------------------------------------------------------------%
 
 
-\chapter{Application to Method Comparison Studies} % Chapter 4
+%\chapter{Application to Method Comparison Studies} % Chapter 4
 
 
 %---------------------------------------------------------------------------%
